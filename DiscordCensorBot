@@ -2,7 +2,7 @@ import discord
 
 TOKEN = ''
 client = discord.Client()
-words = {'yeet':'Friendly african american', '':'', '':''}
+words = {'yeet':'Friendly Neighborhood Kid', '':'', '':''}
 
 @client.event
 async def on_message(message):
@@ -18,7 +18,7 @@ async def on_message(message):
     else:
         embed = discord.Embed(
             description = newMessage,
-            colour = discord.Colour.green()
+            colour = discord.Color.green()
         )
         embed.set_author(name=message.author.name, icon_url=("https://cdn.discordapp.com/avatars/" + str(message.author.id) + "/" + str(message.author.avatar) + ".png?size=256"))
         await message.delete()
