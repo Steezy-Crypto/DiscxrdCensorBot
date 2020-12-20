@@ -1,0 +1,27 @@
+import discord
+
+TOKEN = ''
+client = discord.Client()
+words = {'yeet':'Friendly african american', '':'', '':''}
+
+@client.event
+async def on_message(message):
+    newMessage = message.content
+    for i,(v,k) in enumerate(words.items()):
+        print(v,k)
+        newMessage = str(newMessage).upper().replace(v.upper(),k,-1)
+        print(newMessage)
+
+    print(newMessage)
+    if str(message.content) == newMessage:
+        return
+    else:
+        embed = discord.Embed(
+            description = newMessage,
+            colour = discord.Colour.green()
+        )
+        embed.set_author(name=message.author.name, icon_url=("https://cdn.discordapp.com/avatars/" + str(message.author.id) + "/" + str(message.author.avatar) + ".png?size=256"))
+        await message.delete()
+        await message.channel.send(embed=embed);
+
+client.run(TOKEN)
